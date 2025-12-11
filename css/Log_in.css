@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+
+  h1 {
+
+    text-align: center;
+    color: #fceded;
+    margin: 0;
+}
+
+
+        /* Styling the "BookStore" */
+        .bookstore {
+          font-size: 1.5rem;
+          text-align: center;
+          color: #0f0202;
+          margin-top: -27px; /* Adds space between the h1 and the bookstore text */
+          margin-left: 400px;
+        }
+h2 {
+  text-align: center;
+  color: white;
+
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+
+/* Add this CSS to style the password input field */
+.text-white {
+  color: white;
+}
+
+label {
+  display: block;
+}
+
+input[type="email"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Override the .btn-primary styles to customize for black color */
+button[type="submit"].btn-primary {
+  width: 100%;
+  padding: 8px;
+  background-color: rgba(39, 55, 196, 0.77); 
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none; /* Remove default outline */
+  box-shadow: none; /* Remove box-shadow (default on focus in some browsers) */
+}
+
+/* Hover state */
+button[type="submit"].btn-primary:hover {
+  background-color: rgb(146, 181, 226); /* Darker red on hover */
+}
+
+/* Active state when clicked */
+button[type="submit"].btn-primary:active {
+  background-color: rgb(122, 107, 83)  !important; /* Black when clicked */
+  color: rgb(255, 255, 255) !important; /* White text when clicked */
+  outline: none; /* Remove outline on active */
+  box-shadow: none; /* Remove box-shadow on active state */
+}
+
+/* Focus state (when focused or clicked with keyboard) */
+button[type="submit"].btn-primary:focus {
+  outline: none; /* Remove the blue outline */
+  box-shadow: none; /* Remove the focus box-shadow */
+  background-color: rgb(122, 107, 83)  !important; /* Black when clicked */
+  color: rgb(255, 255, 255) !important; /* White text remains */
+}
+
+
+
+p {
+  text-align: center;
+  color: #070333;
+}
+
+a {
+  color: white;
+}
+
+.password-input {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Define the show/hide icons, for example, using Font Awesome icons */
+.toggle-password::before {
+  content: '\f070';
+  /* Font Awesome eye icon (visible) */
+}
+
+.password-visible .toggle-password::before {
+  content: '\f070';
+  /* Font Awesome eye-slash icon (hidden) */
+}
+
+
+
+
+/* akong CSS*/
+
+body {
+  
+  background-image: url(../IMAGES/home2.jpg);
+  background: linear-gradient(90deg, rgba(141, 194, 111, 1) 0% rgba(118, 184, 82, 1) 50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.curiosity {
+  margin-top: 40px;  /* Top margin */
+  margin-bottom: 30px;  /* Bottom margin */
+  margin-left: -300px;
+  
+}
+
+
+p {
+  margin-left: -300px; /* Adjust the margin here */
+  font-size: 20px;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  align-items: center; /* Aligns the icon and text vertically */
+  padding: 10px 15px;
+  position: relative; /* Ensures the pseudo-element can be positioned correctly */
+  overflow: hidden; /* To avoid content spilling out during hover */
+}
+
+.nav-item:hover {
+  background-color: #dddcec;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.nav-item:hover::before {
+  content: ''; /* Create a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1); /* Add a subtle light overlay */
+  backdrop-filter: blur(8px); /* Apply the glassy blur effect */
+  z-index: -1; /* Send the pseudo-element to the back */
+}
+
+/* Add underline effect with animation on hover */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Position the line at the bottom of the nav item */
+  left: 0;
+  width: 0; /* Start with no width */
+  height: 2px; /* Height of the underline */
+  background-color: #d2e6fd; /* Color of the underline */
+  transition: width 0.3s ease; /* Smooth transition for the width */
+}
+
+.nav-item:hover::after {
+  width: 100%; /* On hover, expand the width to 100% */
+}
+
+.nav-item i {
+  font-size: 1.5rem; /* Adjusts the size of the icons */
+  margin-right: 8px; /* Adds space between icon and text */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.nav-text {
+  font-size: 1.1rem; /* Adjust the text size here */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+
+
+.nav-item:hover .nav-link {
+  color: #007bff; /* Changes text color on hover */
+}
+
+.nav-item.active .nav-link .nav-item {
+  font-weight: bold; /* Optional: Highlights the active item */
+  color: #007bff; /* Active item color */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .nav-item {
+    padding: 8px 12px; /* Adjusts padding on smaller screens */
+  }
+
+  .nav-text {
+    font-size: 1.2rem; /* Adjusts text size on smaller screens */
+  }
+
+  .nav-item i {
+    font-size: 1.3rem; /* Adjusts icon size on smaller screens */
+  }
+}
+
+/* Enhanced and refined .card styling with additional visual effects and responsiveness */
+.card {
+  opacity: 0.9; /* Slight transparency for a modern, layered effect */
+  margin-top: -30px; /* Negative margin for slight lift effect */
+  border-radius: 15px; /* Rounded corners for a soft, modern appearance */
+  background-color: #1613c9; /* Neutral background color */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden; /* Ensures content doesn't spill over rounded corners */
+  position: relative; /* For absolute positioning of child elements (like overlays) */
+  padding: 20px; /* Padding for internal spacing */
+  transition: all 0.3s ease-in-out; /* Smooth transition on hover and focus */
+  cursor: pointer; /* Indicating interactivity */
+  transform: translateY(0); /* Ensures consistency for transition on hover */
+  background-image: linear-gradient(135deg, #f0f4f8, #ffffff); /* Subtle gradient for texture */
+}
+
+
+/* Hover effect to bring the card to life with interactive feedback */
+.card:hover {
+  transform: translateY(-8px); /* Slightly lifts on hover */
+  opacity: 1; /* Full opacity on hover for emphasis */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow for prominence */
+}
+
+/* Focus effect (e.g., when card is clicked or navigated to with keyboard) */
+.card:focus {
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 10px rgba(0, 121, 255, 0.5); /* Custom focus effect (blue glow) */
+  transform: translateY(-4px); /* Slight lift on focus */
+}
+
+/* Image handling inside the card (e.g., for card with image content) */
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Rounds the corners of any image inside */
+  transition: transform 0.3s ease-in-out; /* Smooth scale effect */
+}
+
+/* Image hover effect (zoom effect) */
+.card:hover img {
+  transform: scale(1.05); /* Image zoom effect */
+}
+
+/* Text and content inside the card */
+.card .card-title {
+  font-size: 1.2em; /* Slightly larger font for title */
+  font-weight: 600; /* Bold for emphasis */
+  margin-bottom: 10px; /* Spacing between title and body */
+  color: #333; /* Dark text color for legibility */
+}
+
+.card .card-description {
+  font-size: 1em; /* Standard text size */
+  color: #555; /* Softer text color for body */
+  line-height: 1.6; /* Improved line spacing for readability */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .card {
+    margin-top: 10px; /* Adjust negative margin for medium screens */
+    padding: 15px; /* Adjust internal padding for better spacing */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-top: 0; /* Remove negative margin on smaller screens */
+    padding: 10px; /* Reduce padding on mobile */
+  }
+
+  .card-title {
+    font-size: 1em; /* Adjust title font size for mobile */
+  }
+
+  .card-description {
+    font-size: 0.9em; /* Adjust description font size for mobile */
+  }
+}
+
+
+#age {
+  background-color: transparent;
+}
+
+.button-reg {
+  width: 50px;
+}
+
+/* .form-control {
+  margin-top: -10px;
+} */
+;
+
+footer{
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Optional: background color for footer */
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+}

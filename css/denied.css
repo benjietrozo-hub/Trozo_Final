@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+
+  h1 {
+
+    text-align: center;
+    color: #fceded;
+    margin: 0;
+}
+
+
+        /* Styling the "BookStore" */
+        .bookstore {
+          font-size: 1.5rem;
+          text-align: center;
+          color: #0f0202;
+          margin-top: -27px; /* Adds space between the h1 and the bookstore text */
+          margin-left: 400px;
+        }
+h2 {
+  text-align: center;
+  color: white;
+
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+
+/* Add this CSS to style the password input field */
+.text-white {
+  color: white;
+}
+
+label {
+  display: block;
+}
+
+input[type="email"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Override the .btn-primary styles to customize for black color */
+button[type="submit"].btn-primary {
+  width: 100%;
+  padding: 8px;
+  background-color: rgba(39, 55, 196, 0.77); 
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none; /* Remove default outline */
+  box-shadow: none; /* Remove box-shadow (default on focus in some browsers) */
+}
+
+
+
+/* Active state when clicked */
+button[type="submit"].btn-primary:active {
+  background-color: rgb(122, 107, 83)  !important; /* Black when clicked */
+  color: rgb(255, 255, 255) !important; /* White text when clicked */
+  outline: none; /* Remove outline on active */
+  box-shadow: none; /* Remove box-shadow on active state */
+}
+
+/* Focus state (when focused or clicked with keyboard) */
+button[type="submit"].btn-primary:focus {
+  outline: none; /* Remove the blue outline */
+  box-shadow: none; /* Remove the focus box-shadow */
+  background-color: rgb(122, 107, 83)  !important; /* Black when clicked */
+  color: rgb(255, 255, 255) !important; /* White text remains */
+}
+
+
+
+p {
+  text-align: center;
+  color: #070333;
+}
+
+a {
+  color: white;
+}
+
+.password-input {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Define the show/hide icons, for example, using Font Awesome icons */
+.toggle-password::before {
+  content: '\f070';
+  /* Font Awesome eye icon (visible) */
+}
+
+.password-visible .toggle-password::before {
+  content: '\f070';
+  /* Font Awesome eye-slash icon (hidden) */
+}
+
+
+
+
+/* akong CSS*/
+
+body {
+  
+  background-image: url(../IMAGES/home2.jpg);
+  background: linear-gradient(90deg, rgba(141, 194, 111, 1) 0% rgba(118, 184, 82, 1) 50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.curiosity {
+  margin-top: 40px;  /* Top margin */
+  margin-bottom: 30px;  /* Bottom margin */
+  margin-left: -300px;
+  
+}
+
+
+p {
+  margin-left: -300px; /* Adjust the margin here */
+  font-size: 20px;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  align-items: center; /* Aligns the icon and text vertically */
+  padding: 10px 15px;
+  position: relative; /* Ensures the pseudo-element can be positioned correctly */
+  overflow: hidden; /* To avoid content spilling out during hover */
+}
+
+
+
+
+/* Add underline effect with animation on hover */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Position the line at the bottom of the nav item */
+  left: 0;
+  width: 0; /* Start with no width */
+  height: 2px; /* Height of the underline */
+  background-color: #d2e6fd; /* Color of the underline */
+  transition: width 0.3s ease; /* Smooth transition for the width */
+}
+
+
+.nav-item i {
+  font-size: 1.5rem; /* Adjusts the size of the icons */
+  margin-right: 8px; /* Adds space between icon and text */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.nav-text {
+  font-size: 1.1rem; /* Adjust the text size here */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+
+
+.nav-item.active .nav-link .nav-item {
+  font-weight: bold; /* Optional: Highlights the active item */
+  color: #007bff; /* Active item color */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .nav-item {
+    padding: 8px 12px; /* Adjusts padding on smaller screens */
+  }
+
+  .nav-text {
+    font-size: 1.2rem; /* Adjusts text size on smaller screens */
+  }
+
+  .nav-item i {
+    font-size: 1.3rem; /* Adjusts icon size on smaller screens */
+  }
+}
+
+/* Enhanced and refined .card styling with additional visual effects and responsiveness */
+.card {
+  opacity: 0.9; /* Slight transparency for a modern, layered effect */
+  margin-top: -30px; /* Negative margin for slight lift effect */
+  border-radius: 15px; /* Rounded corners for a soft, modern appearance */
+  background-color: #1613c9; /* Neutral background color */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden; /* Ensures content doesn't spill over rounded corners */
+  position: relative; /* For absolute positioning of child elements (like overlays) */
+  padding: 20px; /* Padding for internal spacing */
+  transition: all 0.3s ease-in-out; /* Smooth transition on hover and focus */
+  cursor: pointer; /* Indicating interactivity */
+  transform: translateY(0); /* Ensures consistency for transition on hover */
+  background-image: linear-gradient(135deg, #f0f4f8, #ffffff); /* Subtle gradient for texture */
+}
+
+
+/* Hover effect to bring the card to life with interactive feedback */
+
+
+/* Focus effect (e.g., when card is clicked or navigated to with keyboard) */
+.card:focus {
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 10px rgba(0, 121, 255, 0.5); /* Custom focus effect (blue glow) */
+  transform: translateY(-4px); /* Slight lift on focus */
+}
+
+/* Image handling inside the card (e.g., for card with image content) */
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Rounds the corners of any image inside */
+  transition: transform 0.3s ease-in-out; /* Smooth scale effect */
+}
+
+
+
+/* Text and content inside the card */
+.card .card-title {
+  font-size: 1.2em; /* Slightly larger font for title */
+  font-weight: 600; /* Bold for emphasis */
+  margin-bottom: 10px; /* Spacing between title and body */
+  color: #333; /* Dark text color for legibility */
+}
+
+.card .card-description {
+  font-size: 1em; /* Standard text size */
+  color: #555; /* Softer text color for body */
+  line-height: 1.6; /* Improved line spacing for readability */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .card {
+    margin-top: 10px; /* Adjust negative margin for medium screens */
+    padding: 15px; /* Adjust internal padding for better spacing */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-top: 0; /* Remove negative margin on smaller screens */
+    padding: 10px; /* Reduce padding on mobile */
+  }
+
+  .card-title {
+    font-size: 1em; /* Adjust title font size for mobile */
+  }
+
+  .card-description {
+    font-size: 0.9em; /* Adjust description font size for mobile */
+  }
+}
+
+
+#age {
+  background-color: transparent;
+}
+
+.button-reg {
+  width: 50px;
+}
+
+/* .form-control {
+  margin-top: -10px;
+} */
+;
+
+footer{
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Optional: background color for footer */
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Denied Page Navbar Styles */
+.navbar {
+    padding: 0 30px;
+    color: rgb(5, 28, 233);
+    background-color: rgba(39, 55, 196, 0.77);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.34);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: white;
+}
+
+.navbar-nav .nav-item:first-child .nav-link {
+    color: white !important;
+}
+
+/* Denied Page Logo Image */
+.denied-logo {
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 4px solid #2737c4;
+    padding: 8px;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- FIX FOR DENIED PAGE ALIGNMENT --- */
+
+/* Reset paragraph styles inside the login card */
+.card-body p {
+    margin-left: 0 !important; /* Overrides the -300px global margin */
+    margin-right: 0 !important;
+    text-align: center;        /* Ensures text is centered */
+    color: #333;               /* Dark text for inside the white card */
+    width: 100%;               /* Prevents text from spilling out */
+}
+
+/* Specific styling for the Timer */
+#total-time-left {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d9534f; /* Red color */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Specific styling for the "Temporarily Locked" message */
+.locked-message {
+    background-color: #f8d7da;
+    color: #721c24 !important; /* Dark red text */
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Fix for the "Excessive attempts" text */
+.limitreach {
+    color: red !important;
+    font-weight: bold;
+    margin-left: 0 !important; /* Remove the manual margin */
+    margin-top: 10px;
+}
+
+/* ... KEEP YOUR EXISTING CSS ABOVE ... */
+
+/* --- FIXES FOR DENIED PAGE ALIGNMENT --- */
+
+/* 1. Reset paragraph styles specifically inside the card to prevent left-shift */
+/* --- CRITICAL FIXES FOR CARD TEXT --- */
+
+/* 1. Force the Card Body to center everything and reset text color */
+.card-body {
+    text-align: center !important;
+    color: #333 !important; /* Dark text base */
+}
+
+/* 2. Reset specific paragraph styles inside the card to override global CSS */
+.card-body p {
+    margin-left: 0 !important;  /* Fixes the -300px shift */
+    margin-right: 0 !important;
+    color: #333 !important;     /* Makes text visible on white card */
+    width: 100% !important;
+}
+
+/* 3. Style the Locked Title (Red, Bold, Centered) */
+.locked-title {
+    color: #dc3545 !important; /* Bright Red */
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    margin-bottom: 10px !important;
+    margin-left: 0 !important; /* Fixes alignment */
+    text-align: center !important;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+}
+
+/* 4. Style the Locked Subtitle (Red, Readable, Centered) */
+.locked-subtitle {
+    color: #c82333 !important; /* Darker Red */
+    font-size: 14px !important;
+    font-weight: bold !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important; /* Fixes alignment */
+    text-align: center !important;
+    line-height: 1.4;
+    display: block;
+    width: 100%;
+}
+
+/* 5. Style the Lock Icon */
+.locked-icon {
+    font-size: 3.5rem;
+    color: #dc3545;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Ensures it sits on its own line */
+}
+
+/* 6. Ensure the "Excessive Attempts" text is red and centered */
+.limitreach {
+    color: red !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+    width: 100%;
+}
+
+/* --- NEW LOCKED SCREEN STYLES (ONLY FOR BATCH 4) --- */
+
+.locked-container {
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Adds a subtle separator line */
+}
+
+.locked-icon {
+    font-size: 3rem; /* Large enough to be clear, small enough to fit */
+    color: #dc3545;  /* Deep Red */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.locked-title {
+    color: #dc3545 !important;
+    font-size: 24px !important; /* Adjusted to fit perfectly */
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.locked-subtitle {
+    color: #c82333 !important; /* Slightly darker red for readability */
+    font-size: 14px !important;
+    font-weight: normal;
+    margin-top: 0;
+    line-height: 1.4;
+}

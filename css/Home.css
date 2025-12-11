@@ -1,0 +1,26 @@
+/* Home Page Styles */
+
+.navbar {
+    padding: 0 30px;
+    color: rgb(5, 28, 233);
+    background-color: rgba(39, 55, 196, 0.77);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.34);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: white;
+}
+
+.navbar-nav .nav-item:first-child .nav-link {
+    color: white !important;
+}
+
