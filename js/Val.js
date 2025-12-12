@@ -144,6 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof idNumberExists !== 'undefined' && idNumberExists) {
             hasError = true;
         }
+        if (typeof passwordExists !== 'undefined' && passwordExists) {
+            hasError = true;
+        }
 
         // Additional validations
         if (!validatePasswordMatch()) {
@@ -696,7 +699,7 @@ function validatePasswordMatch() {
     errorSpan.innerHTML = '<span style="color: green">✓ Passwords match!</span>';
     // Only enable submit if password meets strength requirements
     const strengthResult = checkPasswordStrength(password);
-    submitButton.disabled = !strengthResult.isValid;
+    submitButton.disabled = (!strengthResult.isValid) || (typeof passwordExists !== 'undefined' && passwordExists) || (typeof passwordCheckPending !== 'undefined' && passwordCheckPending);
     return true;
 }
 
@@ -905,7 +908,28 @@ function updatePasswordStrength(password, showRequired = false) {
     const errorSpan = document.getElementById('is-valid-password');
     const submitButton = document.querySelector('.button-reg');
     
-    // Clear all previous messages
+    // If duplicate password is detected, show the error and prevent clearing
+    if (typeof passwordExists !== 'undefined' && passwordExists) {
+        if (errorSpan) {
+            errorSpan.innerHTML = '<span style="color: red">Password Already Exist</span>';
+        }
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+        return;
+    }
+
+    // If a check is pending and UI already shows duplicate message, keep it sticky
+    if (typeof passwordCheckPending !== 'undefined' && passwordCheckPending) {
+        if (errorSpan && (errorSpan.textContent.includes('Password Already Exist') || errorSpan.innerHTML.includes('Password Already Exist'))) {
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+            return;
+        }
+    }
+
+    // Clear all previous messages when not duplicate
     errorSpan.textContent = "";
     strengthIndicator.innerHTML = "";
     requirementsIndicator.innerHTML = "";
@@ -940,7 +964,7 @@ function updatePasswordStrength(password, showRequired = false) {
     requirementsIndicator.innerHTML = strengthResult.feedback.join("<br>");
     
     // Update submit button state
-    submitButton.disabled = !strengthResult.isValid;
+    submitButton.disabled = (!strengthResult.isValid) || (typeof passwordExists !== 'undefined' && passwordExists) || (typeof passwordCheckPending !== 'undefined' && passwordCheckPending);
 
     // Update progress bar
     let progressBar = document.getElementById('password-strength-bar');
@@ -1005,7 +1029,7 @@ function updatePasswordMatch() {
                 errorSpan.innerHTML = '<span style="color: green">✓ Passwords match!</span>';
                 // Only enable submit if password meets strength requirements
                 const strengthResult = checkPasswordStrength(password);
-                submitButton.disabled = !strengthResult.isValid;
+                submitButton.disabled = (!strengthResult.isValid) || (typeof passwordExists !== 'undefined' && passwordExists) || (typeof passwordCheckPending !== 'undefined' && passwordCheckPending);
             }
         } else {
             // Show or maintain mismatch message

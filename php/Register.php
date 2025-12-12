@@ -43,6 +43,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<script>alert('Both of the passwords do not match!');</script>";
             echo "<script>window.history.back();</script>";
         } else {
+            // Server-side check: prevent using a password that already exists in the database
+            // This mirrors the client-side real-time check for robustness when JS is disabled
+            try {
+                $dup_stmt = mysqli_prepare($conn, "SELECT passw FROM infos");
+                if ($dup_stmt && mysqli_stmt_execute($dup_stmt)) {
+                    $dup_result = mysqli_stmt_get_result($dup_stmt);
+                    $password_in_use = false;
+                    while ($row = mysqli_fetch_assoc($dup_result)) {
+                        if (password_verify($data['passw'], $row['passw'])) {
+                            $password_in_use = true;
+                            break;
+                        }
+                    }
+                    mysqli_stmt_close($dup_stmt);
+                    if ($password_in_use) {
+                        echo "<script>alert('This password is already in use. Please choose a different password.');</script>";
+                        echo "<script>window.history.back();</script>";
+                        exit();
+                    }
+                }
+            } catch (Exception $e) {
+                // If an error occurs during duplicate check, proceed without blocking but log it
+                echo "<script>console.log('Duplicate password check error: " . addslashes($e->getMessage()) . "');</script>";
+            }
+
             // Hash the password
             $password = password_hash($data['passw'], PASSWORD_BCRYPT);
 
@@ -231,14 +256,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="" disabled selected>Select</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
-    </selec t>
+    </select>
                       <span id="sex_val" style="color: red; font-size: 11px;"></span>
   </div>
 </div>
 
 <!-- Birthday -->
-                  <div class="col-md-3 mb-1">
-  <div class="form-outline">
+                  <div class="col-md-3 mb-1 d-flex align-items-center">
+  <div class="form-outline w-100">
                       <label for="birth" class="form-label mb-0" style="font-weight: bold; font-size: 13px;">Birthdate</label>
                       <input type="date" class="form-control form-control-sm py-1" name="birth" id="birthdate" placeholder="birth">
                       <span id="birthdate_val" style="color: red; font-size: 11px;"></span>
@@ -246,8 +271,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
                   <!-- Age -->
-                  <div class="col-md-3 mb-1">
-                    <div class="form-outline">
+                  <div class="col-md-3 mb-1 d-flex align-items-center">
+                    <div class="form-outline w-100">
                       <label for="age" class="form-label mb-0" style="font-weight: bold; font-size: 13px;">Age</label>
                       <input type="number" class="form-control form-control-sm py-1" name="age" id="age"  autocomplete="off" required readonly>
                       <span id="age_val" style="color:red; font-size: 11px;"></span>
@@ -396,6 +421,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="../php/script.php?dir=js&file=emailcheck.js"></script>
 <script src="../php/script.php?dir=js&file=idnumbercheck.js"></script>
 <script src="../php/script.php?dir=js&file=usernamecheck.js"></script>
+<script src="../php/script.php?dir=js&file=passwordcheck.js"></script>
 <script src="../php/script.php?dir=js&file=register.js"></script>
 </body>
 
